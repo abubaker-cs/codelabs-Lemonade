@@ -158,12 +158,12 @@ class MainActivity : AppCompatActivity() {
 
             }
 
-            // TODO 04: When the image is clicked in the DRINK state the state should become RESTART
+            // When the image is clicked in the DRINK state the state should become RESTART
             DRINK -> {
                 lemonadeState = RESTART
             }
 
-            // TODO 05: When the image is clicked in the RESTART state the state should become SELECT
+            //  When the image is clicked in the RESTART state the state should become SELECT
             RESTART -> {
                 lemonadeState = SELECT
             }
@@ -182,14 +182,38 @@ class MainActivity : AppCompatActivity() {
 
         val textAction: TextView = findViewById(R.id.text_action)
 
-        // TODO 07: set up a conditional that tracks the lemonadeState
+        // Set up a conditional that tracks the lemonadeState
+        when (lemonadeState) {
 
-        // TODO 08: for each state, the textAction TextView should be set to the corresponding string from
-        //  the string resources file. The strings are named to match the state
+            // For each state, the textAction TextView should be set to the corresponding string from
+            //  the string resources file. The strings are named to match the state
 
-        // TODO 09: Additionally, for each state, the lemonImage should be set to the corresponding
-        //  drawable from the drawable resources. The drawables have the same names as the strings
-        //  but remember that they are drawables, not strings.
+            // Additionally, for each state, the lemonImage should be set to the corresponding
+            //  drawable from the drawable resources. The drawables have the same names as the strings
+            //  but remember that they are drawables, not strings.
+
+            SELECT -> {
+                lemonImage!!.setImageResource(R.drawable.lemon_tree)
+                textAction.setText(R.string.lemon_select)
+            }
+
+            SQUEEZE -> {
+                lemonImage!!.setImageResource(R.drawable.lemon_squeeze)
+                textAction.setText(R.string.lemon_squeeze)
+            }
+
+            DRINK -> {
+                lemonImage!!.setImageResource(R.drawable.lemon_drink)
+                textAction.setText(R.string.lemon_drink)
+            }
+
+            RESTART -> {
+                lemonImage!!.setImageResource(R.drawable.lemon_restart)
+                textAction.setText(R.string.lemon_empty_glass)
+            }
+        }
+
+
     }
 
     /**
